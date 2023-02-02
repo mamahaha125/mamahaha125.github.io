@@ -36,7 +36,7 @@ html.dataset.dark = localStorage.dark;
 
 <h5 id="扫描成功"><a href="#扫描成功" class="headerlink" title="扫描成功"></a>扫描成功</h5><p><img src="/imgs/image-20221030150400895.png"></p>
 <h5 id="在kali端看到了响应给扫描机的ICMP包"><a href="#在kali端看到了响应给扫描机的ICMP包" class="headerlink" title="在kali端看到了响应给扫描机的ICMP包"></a>在kali端看到了响应给扫描机的ICMP包</h5><p><img src="/imgs/image-20221030150600813.png"></p>
-<h3 id="基于ARP的主机发现"><a href="#基于ARP的主机发现" class="headerlink" title="基于ARP的主机发现"></a>基于ARP的主机发现</h3><pre><code>地址解析协议ARP处于数据链路层，用于根据IP（网络层）获取MAC（数据链路层）地址，简单的来说，在一个局域网内，一台主机想要和另一台主机通信时，需要知道**对方**的**MAC**地址，如果本地ARP缓存没有对方的MAC地址，就会向局域网进行广播发送ARP的请求，询问目标IP的MAC地址，同时数据包里包含自己的IP和MAC地址，局域网内的所有主机都会收到该请求。如果**自身IP**与ARP请求的IP一致，则将自己的MAC地址发回给请求方，并将请求数据包中的IP与MAC地址存入本地。
+<h3 id="基于ARP的主机发现"><a href="#基于ARP的主机发现" class="headerlink" title="基于ARP的主机发现"></a>基于ARP的主机发现</h3><pre><code>地址解析协议ARP处于数据链路层，用于根据IP（网络层）获取MAC（数据链路层）地址，简单的来说，在一个局域网内，一台主机想要和另一台主机通信时，需要知道**对方**的**MAC**地址，如果本地ARP缓存没有对方的MAC地址，就会向局域网进行广播发送ARP的请求，询问目标IP的MAC地址，同时数据包里包含自己的IP和MAC地址，局域网内的所有主机都会收到该请求。如果**自身IP**与ARP请求的IP一致，则将自己的MAC地址发回给请求方，并将请求数据包中的IP与MAC地址存入本地
 </code></pre>
 <hr>
 <pre><code>我们可以利用arp请求扫描存活的主机，ARP请求涉及网络层与数据链路层，因此我们需要scapy模块里的**Ether**与**ARP**
